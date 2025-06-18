@@ -1,10 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Home } from './src/pages/Home';
+import { Data } from './src/pages/Data';
+import { useState } from 'react';
+
+
 
 export default function App() {
+
+  const [page ,setPage] = useState(true)
+console.log(page)
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      {
+        page === true && (
+              <Home page={page} setpage={setPage}  />
+        )
+      }
+
+       {
+        page === false && (
+              <Data page={page} setpage={setPage}  />
+        )
+      }
       <StatusBar style="auto" />
     </View>
   );
